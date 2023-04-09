@@ -112,8 +112,9 @@ def main():
     embedding_lst = []
     roi_list = []
     if(result):
+        st.snow()
         for image in svd_img_list:
-            st.image(image, caption="image")
+            #st.image(image, caption="image")
             #roi = extractFace(image)
             embedder.name =  ''.join(random.choices(string.ascii_lowercase +
                              string.digits, k=7))
@@ -130,7 +131,7 @@ def main():
 	
             #print(roi)
 
-            st.image(roi, caption="face")
+            #st.image(roi, caption="face")
             roi_list.append(roi)
             embedding = embedder.embeddings(exp_roi)
 	    #embedding = get_embedding(model, roi)

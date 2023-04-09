@@ -144,7 +144,8 @@ def main():
         ind = svd_nms_list.index(option)
         final_result = simMeasure(embedding_lst, option, ind)
         final_result_reduced = final_result.remove(final_result[ind])
-        m = final_result_reduced.min()
+        print(final_result_reduced)
+        m = min(final_result_reduced)
         ind_m = final_result.index(final_result)
         st.write(svd_nms[ind_m])
 		

@@ -108,9 +108,9 @@ def main():
             #print(roi)
 
             st.image(roi, caption="face")
-            embedding = embedder.embeddings(face)
+            #embedding = embedder.embeddings(face)
 	    #embedding = get_embedding(model, roi)
-            embedding_lst.append(embedding)
+            #embedding_lst.append(embedding)
 		
             #image = cv2.rectangle(image, (box[0], box[1]), (box[0]+box[2], box[1]+box[3]), (255, 255, 255), 5 )
             #st.image(image, caption="rect")

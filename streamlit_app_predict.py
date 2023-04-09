@@ -66,8 +66,9 @@ def main():
     result = st.button('Predict')
     if(result):
         for image in svd_img_list:
-            st.image(image, caption="image1")
+            st.image(image, caption="image")
             roi = extractFace(image)
+            st.image(roi, caption="face")
 
         
 

@@ -39,7 +39,7 @@ def load_image():
 
 def extractFace(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     faces = faceCascade.detectMultiScale(
     gray,
     scaleFactor=1.3,

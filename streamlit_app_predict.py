@@ -117,8 +117,8 @@ def main():
 		
            
             #simMeasure(embedding_lst, )
-		
-         option = st.selectbox('Select Source Image', (svd_nms_list))
+
+        option = st.selectbox('Select Source Image', (svd_nms_list))
 
         
 

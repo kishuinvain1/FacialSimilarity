@@ -108,7 +108,7 @@ def main():
             #print(roi)
 
             st.image(roi, caption="face")
-            embedding = embedder.embeddings(image)
+            embedding = embedder.embeddings(face)
 	    #embedding = get_embedding(model, roi)
             embedding_lst.append(embedding)
 		

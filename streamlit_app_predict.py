@@ -9,6 +9,7 @@ import numpy as np
 import base64
 
 from keras.models import load_model
+from keras_facenet import FaceNet
 
 
 def get_embedding(model, face_pixels):
@@ -78,7 +79,7 @@ def main():
    
     svd_img_list = load_image()
     # load the model
-    model = load_model('facenet_keras.h5')
+    embedder = FaceNet()
     # make prediction to get embedding
     # get embedding
    
@@ -90,9 +91,12 @@ def main():
     if(result):
         for image in svd_img_list:
             st.image(image, caption="image")
-            roi = extractFace(image)
+            #roi = extractFace(image)
+            roi = embedder.extract(image, threshold=0.6)
+
             st.image(roi, caption="face")
-            embedding = get_embedding(model, roi)
+            embedding = embedder.embeddings(roi)
+	    #embedding = get_embedding(model, roi)
             embedding_lst.append(embedding)
 
         

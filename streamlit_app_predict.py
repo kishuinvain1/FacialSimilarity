@@ -11,6 +11,9 @@ import base64
 from keras.models import load_model
 import keras_facenet
 
+import string
+import random
+
 
 def get_embedding(model, face_pixels):
 	# scale pixel values
@@ -72,10 +75,11 @@ def extractFace(image):
        
     return roi_color
     
-	 
+
+@st.cache
 def load_model():
     embedder = keras_facenet.FaceNet()
-    #embedder.name = 'pret_model'
+    
     return embedder
    
     
@@ -99,7 +103,8 @@ def main():
     svd_img_list, svd_nms_list = load_image()
     option = st.selectbox('Select Source Image', (svd_nms_list))
    
-
+    embedder = load_model()
+    
    
    
     result = st.button('Predict')
@@ -108,7 +113,9 @@ def main():
         for image in svd_img_list:
             st.image(image, caption="image")
             #roi = extractFace(image)
-            embedder = load_model()
+            embedder.name =  ''.join(random.choices(string.ascii_lowercase +
+                             string.digits, k=N))
+           
             face = embedder.extract(image, threshold=0.6)
             box = face[0]['box']
             print("The box is...########################################################################")

@@ -33,6 +33,7 @@ def load_image():
     path = None
     f = None
     img_list = []
+    img_nms = []
     uploaded_files = st.file_uploader(label='Upload images to find the similarity', accept_multiple_files=True)
     for uploaded_file in uploaded_files: 
         if uploaded_file is not None:
@@ -42,11 +43,12 @@ def load_image():
             image_data = uploaded_file.getvalue() 
             #st.image(image_data)
             name = uploaded_file.name
+            img_nms.append(name)
             path = os.path.abspath(name)
             print("abs path")
             print(path)
             img_list.append(opencv_image)
-    return img_list
+    return img_list, img_nms
 
 
 
@@ -85,7 +87,7 @@ def main():
     
     st.title('Face Similiarity Check')	
    
-    svd_img_list = load_image()
+    svd_img_list, svd_nms_list = load_image()
    
 
     
@@ -106,12 +108,15 @@ def main():
             #print(roi)
 
             st.image(roi, caption="face")
-            #embedding = embedder.embeddings(roi)
+            embedding = embedder.embeddings(roi)
 	    #embedding = get_embedding(model, roi)
-            #embedding_lst.append(embedding)
+            embedding_lst.append(embedding)
 		
             #image = cv2.rectangle(image, (box[0], box[1]), (box[0]+box[2], box[1]+box[3]), (255, 255, 255), 5 )
             #st.image(image, caption="rect")
+		
+            option = st.selectbox('Select Source Image', (svd_nms_list))
+            #simMeasure(embedding_lst, )
 
         
 

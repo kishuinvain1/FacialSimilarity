@@ -104,11 +104,12 @@ def main():
             print("The box is...########################################################################")
             print(box)
             roi = image[int(box[1]):int(box[1]+box[3]), int(box[0]):int(box[0]+box[2]),  :]
+            exp_roi = np.expand_dims(roi, axis=0)
 	
             #print(roi)
 
             st.image(roi, caption="face")
-            embedding = embedder.embeddings([1,roi])
+            embedding = embedder.embeddings(exp_roi)
 	    #embedding = get_embedding(model, roi)
             #embedding_lst.append(embedding)
 		

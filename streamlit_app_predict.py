@@ -110,6 +110,7 @@ def main():
     embedder = load_model()
     
     embedding_lst = []
+    roi_list = []
     if(result):
         for image in svd_img_list:
             st.image(image, caption="image")
@@ -130,6 +131,7 @@ def main():
             #print(roi)
 
             st.image(roi, caption="face")
+            roi_list.append(roi)
             embedding = embedder.embeddings(exp_roi)
 	    #embedding = get_embedding(model, roi)
             embedding_lst.append(embedding)
@@ -148,9 +150,9 @@ def main():
         print("final_result is.....................")
         print(final_result)
         for i, item in enumerate(final_result):
-            img1 = svd_img_list[ind]
-            img2 = svd_img_list[i]
-            st.image(img1, img2)
+            img1 = roi_list[ind]
+            img2 = roi_list[i]
+            st.image([img1, img2])
             st.write("Difference:" + str(final_result[i]))
 	#st.image(svd_)
         

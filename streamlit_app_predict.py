@@ -107,6 +107,7 @@ def main():
             exp_roi = np.expand_dims(roi, axis=0)
             print("shape after expansions..........................")
             print(exp_roi.shape)
+            print(roi.shape)
 	
             #print(roi)
 

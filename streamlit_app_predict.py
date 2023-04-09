@@ -152,6 +152,8 @@ def main():
         for i, item in enumerate(final_result):
             img1 = roi_list[ind]
             img2 = roi_list[i]
+            img1 = cv2.resize(img1, (780, 540), interpolation = cv2.INTER_LINEAR)
+            img2 = cv2.resize(img2, (780, 540), interpolation = cv2.INTER_LINEAR)
             st.image([img1, img2])
             st.write("Difference:" + str(final_result[i]))
 	#st.image(svd_)

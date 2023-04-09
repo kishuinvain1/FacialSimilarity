@@ -147,6 +147,7 @@ def main():
         final_result = simMeasure(embedding_lst, option, ind)
         print("final_result is.....................")
         print(final_result)
+        
         fr = final_result
         del fr[ind]
         print(fr)

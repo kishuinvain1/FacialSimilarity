@@ -153,7 +153,7 @@ def main():
         print(fr)
         m = min(fr)
         ind_m = final_result.index(m)
-        st.write(svd_nms[ind_m])
+        st.write(svd_nms_list[ind_m])
 		
 	
        

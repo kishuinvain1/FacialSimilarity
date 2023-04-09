@@ -149,7 +149,7 @@ def main():
         print(final_result)
         for i, item in enumerate(final_result):
             img1 = svd_img_list[ind]
-	    img2 = svd_img_list[i]
+            img2 = svd_img_list[i]
             st.image(img1, img2)
             st.write("Difference:" + str(final_result[i]))
 	#st.image(svd_)

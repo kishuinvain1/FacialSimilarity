@@ -142,6 +142,8 @@ def main():
 
         
         ind = svd_nms_list.index(option)
+        print("index issssssssssssssss............")
+        print(ind)
         final_result = simMeasure(embedding_lst, option, ind)
         print("final_result is.....................")
         print(final_result)

@@ -81,6 +81,16 @@ def load_model():
    
     
 
+def simMeasure(embedding_lst, option, ind):
+    dist_list = []
+    pnt1 = embedding_lst[ind]
+    for embed in embedding_lst:
+        dist = np.linalg.norm(pnt1 - embed)
+        dist_list.append(dist)
+
+    return dist_list
+            
+        
 
 	
 def main():
@@ -114,7 +124,7 @@ def main():
             st.image(roi, caption="face")
             embedding = embedder.embeddings(exp_roi)
 	    #embedding = get_embedding(model, roi)
-            #embedding_lst.append(embedding)
+            embedding_lst.append(embedding)
 		
             #image = cv2.rectangle(image, (box[0], box[1]), (box[0]+box[2], box[1]+box[3]), (255, 255, 255), 5 )
             #st.image(image, caption="rect")
@@ -123,6 +133,9 @@ def main():
             #simMeasure(embedding_lst, )
 
         option = st.selectbox('Select Source Image', (svd_nms_list))
+        ind = svd_nms_list.index(option)
+        final_result = simMeasure(embedding_lst, option, ind)
+        print(final_result)
 
         
 

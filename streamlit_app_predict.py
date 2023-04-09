@@ -8,6 +8,21 @@ import cv2
 import numpy as np
 import base64
 
+from keras.models import load_model
+
+
+def get_embedding(model, face_pixels):
+	# scale pixel values
+	face_pixels = face_pixels.astype('float32')
+	# standardize pixel values across channels (global)
+	mean, std = face_pixels.mean(), face_pixels.std()
+	face_pixels = (face_pixels - mean) / std
+	# transform face into one sample
+	samples = expand_dims(face_pixels, axis=0)
+	# make prediction to get embedding
+	yhat = model.predict(samples)
+	return yhat[0]
+
 
 
 
@@ -58,17 +73,27 @@ def extractFace(image):
 
 	
 def main():
+    
     st.title('Face Similiarity Check')	
    
     svd_img_list = load_image()
+    # load the model
+    model = load_model('facenet_keras.h5')
+    # make prediction to get embedding
+    # get embedding
+   
+
     
    
     result = st.button('Predict')
+    embedding_lst = []
     if(result):
         for image in svd_img_list:
             st.image(image, caption="image")
             roi = extractFace(image)
             st.image(roi, caption="face")
+            embedding = get_embedding(model, roi)
+            embedding_lst.append(embedding)
 
         
 

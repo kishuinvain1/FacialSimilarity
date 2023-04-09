@@ -99,6 +99,7 @@ def main():
             embedder = load_model()
             face = embedder.extract(image, threshold=0.6)
             box = face[0]['box']
+            print(box)
             roi = image[int(box[0]):int(box[1]), int(box[2]):int(box[3]), :]
 	
             print(roi)

@@ -9,7 +9,7 @@ import numpy as np
 import base64
 
 from keras.models import load_model
-from keras_facenet import FaceNet
+from keras_facenet
 
 
 def get_embedding(model, face_pixels):
@@ -70,7 +70,15 @@ def extractFace(image):
        
     return roi_color
     
+	
   
+def load_model():
+    embedder = keras_facenet.FaceNet()
+    #embedder.name = 'pret_model'
+    return embedder
+   
+    
+
 
 	
 def main():
@@ -78,11 +86,6 @@ def main():
     st.title('Face Similiarity Check')	
    
     svd_img_list = load_image()
-    # load the model
-    embedder = FaceNet()
-    embedder.name = 'pret_model'
-    # make prediction to get embedding
-    # get embedding
    
 
     
@@ -93,12 +96,13 @@ def main():
         for image in svd_img_list:
             st.image(image, caption="image")
             #roi = extractFace(image)
+            embedder = load_model()
             roi = embedder.extract(image, threshold=0.6)
 
             st.image(roi, caption="face")
-            embedding = embedder.embeddings(roi)
+            #embedding = embedder.embeddings(roi)
 	    #embedding = get_embedding(model, roi)
-            embedding_lst.append(embedding)
+            #embedding_lst.append(embedding)
 
         
 

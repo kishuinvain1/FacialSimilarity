@@ -147,7 +147,7 @@ def main():
         final_result = simMeasure(embedding_lst, option, ind)
         print("final_result is.....................")
         print(final_result)
-	for i, item in enumerate(final_result):
+        for i, item in enumerate(final_result):
             img1 = svd_img_list[ind]
 	    img2 = svd_img_list[i]
             st.image(img1, img2)

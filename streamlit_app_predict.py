@@ -12,7 +12,7 @@ import base64
 
 
 
-def load_image1():
+def load_image():
     opencv_image = None 
     path = None
     f = None

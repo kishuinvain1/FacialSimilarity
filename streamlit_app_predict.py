@@ -97,10 +97,13 @@ def main():
             st.image(image, caption="image")
             #roi = extractFace(image)
             embedder = load_model()
-            roi = embedder.extract(image, threshold=0.6)
+            face = embedder.extract(image, threshold=0.6)
+            box = face[0]['box']
+            roi = image[int(box[0]):int(box[1]), int(box[2]):int(box[3]), :]
+	
             print(roi)
 
-            #st.image(roi, caption="face")
+            st.image(roi, caption="face")
             #embedding = embedder.embeddings(roi)
 	    #embedding = get_embedding(model, roi)
             #embedding_lst.append(embedding)

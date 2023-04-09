@@ -105,6 +105,8 @@ def main():
             print(box)
             roi = image[int(box[1]):int(box[1]+box[3]), int(box[0]):int(box[0]+box[2]),  :]
             exp_roi = np.expand_dims(roi, axis=0)
+            print("shape after expansions..........................")
+            print(exp_roi.shape)
 	
             #print(roi)
 

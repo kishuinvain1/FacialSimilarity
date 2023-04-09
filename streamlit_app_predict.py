@@ -37,7 +37,24 @@ def load_image():
 	
 
 
-	
+def extractFace(image):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
+    faces = faceCascade.detectMultiScale(
+    gray,
+    scaleFactor=1.3,
+    minNeighbors=3,
+    minSize=(30, 30)
+)
+    print("[INFO] Found {0} Faces.".format(len(faces)))
+#saving every face detected
+    for (x, y, w, h) in faces:
+        cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        roi_color = image[y:y + h, x:x + w]
+       
+    return roi_color
+    
+  
 
 	
 def main():
@@ -51,7 +68,7 @@ def main():
         for image in svd_img_list:
             st.image(image, caption="image1")
        
-	    #extractFace(svd_img1)
+	    roi = extractFace(svd_img1)
 
         
 

@@ -73,7 +73,7 @@ def extractFace(image):
     return roi_color
     
 	
-@st.cache 
+@st.cache_data 
 def load_model():
     embedder = keras_facenet.FaceNet()
     #embedder.name = 'pret_model'

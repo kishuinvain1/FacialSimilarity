@@ -72,8 +72,7 @@ def extractFace(image):
        
     return roi_color
     
-	
-@st.cache_data 
+	 
 def load_model():
     embedder = keras_facenet.FaceNet()
     #embedder.name = 'pret_model'
@@ -98,9 +97,10 @@ def main():
     st.title('Face Similiarity Check')	
    
     svd_img_list, svd_nms_list = load_image()
+    option = st.selectbox('Select Source Image', (svd_nms_list))
    
 
-    
+    embedder = load_model()
    
     result = st.button('Predict')
     embedding_lst = []
@@ -108,7 +108,7 @@ def main():
         for image in svd_img_list:
             st.image(image, caption="image")
             #roi = extractFace(image)
-            embedder = load_model()
+            
             face = embedder.extract(image, threshold=0.6)
             box = face[0]['box']
             print("The box is...########################################################################")
@@ -132,7 +132,7 @@ def main():
            
             #simMeasure(embedding_lst, )
 
-        option = st.selectbox('Select Source Image', (svd_nms_list))
+        
         ind = svd_nms_list.index(option)
         final_result = simMeasure(embedding_lst, option, ind)
         print(final_result)

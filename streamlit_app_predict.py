@@ -9,7 +9,7 @@ import numpy as np
 import base64
 
 from keras.models import load_model
-from keras_facenet
+import keras_facenet
 
 
 def get_embedding(model, face_pixels):

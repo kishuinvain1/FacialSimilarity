@@ -103,18 +103,19 @@ def main():
     svd_img_list, svd_nms_list = load_image()
     option = st.selectbox('Select Source Image', (svd_nms_list))
    
-    embedder = load_model()
-    
+   
    
    
     result = st.button('Predict')
+    embedder = load_model()
+    
     embedding_lst = []
     if(result):
         for image in svd_img_list:
             st.image(image, caption="image")
             #roi = extractFace(image)
             embedder.name =  ''.join(random.choices(string.ascii_lowercase +
-                             string.digits, k=N))
+                             string.digits, k=7))
            
             face = embedder.extract(image, threshold=0.6)
             box = face[0]['box']

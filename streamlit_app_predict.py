@@ -48,7 +48,7 @@ def main():
     result = st.button('Predict')
     if(result):
         for image in svd_img_list:
-            st.image(svd_img1, caption="image1")
+            st.image(image, caption="image1")
        
 	    #extractFace(svd_img1)
 

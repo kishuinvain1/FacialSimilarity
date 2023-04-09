@@ -80,6 +80,7 @@ def main():
     svd_img_list = load_image()
     # load the model
     embedder = FaceNet()
+    embedder.name = 'pret_model'
     # make prediction to get embedding
     # get embedding
    

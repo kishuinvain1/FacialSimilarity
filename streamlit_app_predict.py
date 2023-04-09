@@ -147,13 +147,19 @@ def main():
         final_result = simMeasure(embedding_lst, option, ind)
         print("final_result is.....................")
         print(final_result)
+	for i, item in enumerate(final_result):
+            img1 = svd_img_list[ind]
+	    img2 = svd_img_list[i]
+            st.image(img1, img2)
+            st.write("Difference:" + str(final_result[i]))
+	#st.image(svd_)
         
-        fr = final_result
-        del fr[ind]
-        print(fr)
-        m = min(fr)
-        ind_m = final_result.index(m)
-        st.write(svd_nms_list[ind_m])
+        #fr = final_result
+        #del fr[ind]
+        #print(fr)
+        #m = min(fr)
+        #ind_m = final_result.index(m)
+        #st.write(svd_nms_list[ind_m])
 		
 	
        

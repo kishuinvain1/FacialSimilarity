@@ -101,17 +101,17 @@ def main():
             box = face[0]['box']
             print("The box is...########################################################################")
             print(box)
-            #roi = image[int(box[1]-box[2]//2):int(box[0]-box[3]//2), int(box[1]+box[2]//2):int(box[0]+box[3]//2), :]
+            roi = image[int(box[0]):int(box[0]+box[2]), int(box[1]):int(box[1]+box[3]), :]
 	
             #print(roi)
 
-            #st.image(roi, caption="face")
+            st.image(roi, caption="face")
             #embedding = embedder.embeddings(roi)
 	    #embedding = get_embedding(model, roi)
             #embedding_lst.append(embedding)
 		
-            image = cv2.rectangle(image, (box[0], box[1]), (box[0]+box[2], box[1]+box[3]), (255, 255, 255), 5 )
-            st.image(image, caption="rect")
+            #image = cv2.rectangle(image, (box[0], box[1]), (box[0]+box[2], box[1]+box[3]), (255, 255, 255), 5 )
+            #st.image(image, caption="rect")
 
         
 

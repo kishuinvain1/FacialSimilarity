@@ -112,7 +112,7 @@ def main():
     embedding_lst = []
     roi_list = []
     if(result):
-        st.snow()
+        st.balloons()
         for image in svd_img_list:
             #st.image(image, caption="image")
             #roi = extractFace(image)

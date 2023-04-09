@@ -67,8 +67,7 @@ def main():
     if(result):
         for image in svd_img_list:
             st.image(image, caption="image1")
-       
-	    roi = extractFace(svd_img1)
+            roi = extractFace(svd_img1)
 
         
 

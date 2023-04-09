@@ -101,7 +101,7 @@ def main():
             box = face[0]['box']
             print("The box is...########################################################################")
             print(box)
-            roi = image[int(box[0]):int(box[0]+box[2]), int(box[1]):int(box[1]+box[3]), :]
+            roi = image[int(box[1]):int(box[1]+box[3]), int(box[0]):int(box[0]+box[2]),  :]
 	
             #print(roi)
 

@@ -115,8 +115,10 @@ def main():
             #image = cv2.rectangle(image, (box[0], box[1]), (box[0]+box[2], box[1]+box[3]), (255, 255, 255), 5 )
             #st.image(image, caption="rect")
 		
-            option = st.selectbox('Select Source Image', (svd_nms_list))
+           
             #simMeasure(embedding_lst, )
+		
+         option = st.selectbox('Select Source Image', (svd_nms_list))
 
         
 

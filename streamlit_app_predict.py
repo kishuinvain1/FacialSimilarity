@@ -147,10 +147,11 @@ def main():
         final_result = simMeasure(embedding_lst, option, ind)
         print("final_result is.....................")
         print(final_result)
-        final_result_reduced = final_result.remove(final_result[ind])
-        print(final_result_reduced)
-        m = min(final_result_reduced)
-        ind_m = final_result.index(final_result)
+	fr = final_result
+        del fr[ind]
+        print(fr)
+        m = min(fr)
+        ind_m = final_result.index(m)
         st.write(svd_nms[ind_m])
 		
 	
